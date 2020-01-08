@@ -15,4 +15,9 @@ public class SimpleController {
         model.addAttribute("appName", appName);
         return "home";
     }
+
+    @GetMapping("/bootstrap")
+    public String bootstrapPage(Model model) {
+        return "bootstrap";
+    }
 }
