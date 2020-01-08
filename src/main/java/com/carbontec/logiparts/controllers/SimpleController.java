@@ -20,4 +20,9 @@ public class SimpleController {
     public String bootstrapPage(Model model) {
         return "bootstrap";
     }
+
+    @GetMapping("/index")
+    public String getIndex(Model model) {
+        return "index";
+    }
 }
