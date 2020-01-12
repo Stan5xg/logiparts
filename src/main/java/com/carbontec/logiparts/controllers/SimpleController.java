@@ -25,4 +25,26 @@ public class SimpleController {
     public String getIndex(Model model) {
         return "index";
     }
+
+    @GetMapping("/index2")
+    public String getIndex2(Model model) {
+        return "indexold";
+    }
+
+    @GetMapping("/buttons")
+    public String getButtons(Model model) {
+        return "buttons";
+    }
+
+    @GetMapping("/cards")
+    public String getCards(Model model) {
+        return "cards";
+    }
+
+//    @GetMapping("/register")
+//    public String getIndex(Model model) {
+//        return "index";
+//    }
+
+
 }
