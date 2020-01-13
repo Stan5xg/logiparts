@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
 
-@Data
 @Entity
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -26,6 +27,17 @@ public class User {
     private String email;
 
     private String password;
+
+    private boolean tokenExpired;
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
     @ManyToOne
     private Department department;
