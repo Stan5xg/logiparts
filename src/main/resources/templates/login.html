@@ -6,6 +6,7 @@
 <body>
 <!--        th:include="layout :: body" th:with="content=~{::content}">-->
 <div th:fragment="content">
+    hello!
     <form name="f" th:action="@{/login}" method="post">
         <fieldset>
             <legend>Please Login</legend>
@@ -19,6 +20,10 @@
             <input type="text" id="username" name="username"/>
             <label for="password">Password</label>
             <input type="password" id="password" name="password"/>
+            <input
+                    type="hidden"
+                    th:name="${_csrf.parameterName}"
+                    th:value="${_csrf.token}" />
             <div class="form-actions">
                 <button type="submit" class="btn">Log in</button>
             </div>

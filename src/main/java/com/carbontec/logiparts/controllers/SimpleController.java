@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-//@Controller
+@Controller
 public class SimpleController {
-//    @Value("${spring.application.name}")
-//    String appName;
-//
-//    @GetMapping("/")
-//    public String homePage(Model model) {
-//        model.addAttribute("appName", appName);
-//        return "home";
-//    }
+    @Value("${spring.application.name}")
+    String appName;
+
+    @GetMapping("/")
+    public String homePage(Model model) {
+        model.addAttribute("appName", appName);
+        return "index";
+    }
 //
 //    @GetMapping("/bootstrap")
 //    public String bootstrapPage(Model model) {
@@ -36,10 +36,17 @@ public class SimpleController {
 //        return "buttons";
 //    }
 //
-//    @GetMapping("/cards")
-//    public String getCards(Model model) {
-//        return "cards";
-//    }
+    @GetMapping("/tables")
+    public String getTables(Model model) {
+        return "examples/tables";
+    }
+
+    @GetMapping("/cards")
+    public String getCards(Model model) {
+        return "examples/cards";
+    }
+
+
 
 
 

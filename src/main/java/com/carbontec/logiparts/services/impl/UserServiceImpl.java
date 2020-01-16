@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
         int departmentId = userRegistrationDto.getDepartmentId();
         Department department = departmentRepository.findById(departmentId).get();//TODO add check for optional
-        user.setDepartment(department);
+//        user.setDepartment(department);
 
         userRepository.save(user);
 

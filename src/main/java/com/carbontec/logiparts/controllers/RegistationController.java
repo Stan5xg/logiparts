@@ -26,6 +26,7 @@ public class RegistationController {
         return "registration";
     }
 
+    //TODO try replace with path= and postmapping
     @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
     public ModelAndView registerUserAccount
             (@ModelAttribute("user") UserRegistrationDto userRegistrationDto,
