@@ -37,13 +37,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
-        Role role = new Role();role.setName("ADMIN"); //remove this
+//        Role role = new Role();role.setName("ADMIN"); //remove this
         return  new org.springframework.security.core.userdetails.User
                 (user.getEmail(),
                         user.getPassword().toLowerCase(), enabled, accountNonExpired,
                         credentialsNonExpired, accountNonLocked,
-                        getAuthorities(Collections.singleton(role))); //remove this
-//                        getAuthorities(user.getRoles())); //uncomment
+//                        getAuthorities(Collections.singleton(role))); //remove this
+                        getAuthorities(user.getRoles())); //uncomment
     }
 
     private static List<GrantedAuthority> getAuthorities (Collection<Role> roles) {
