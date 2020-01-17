@@ -1,6 +1,7 @@
 package com.carbontec.logiparts.jpa.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,5 +20,6 @@ public class Compartment {
     private String name;
 
     @ManyToOne
+    @ToString.Exclude
     private Location location;
 }

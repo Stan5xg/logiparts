@@ -110,8 +110,13 @@
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse" th:id="'card'+${iterStat.count}">
-                        <div class="card-body">
-                            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+                        <div class="row">
+                            <div th:each="department : ${location.departments}">
+                                <div class="card-body" th:text="${department.name}"/>
+                            </div>
+                            <div th:each="compartment : ${location.compartments}">
+                                <div class="card-body" th:text="${compartment.name}"/>
+                            </div>
                         </div>
                     </div>
                 </div>

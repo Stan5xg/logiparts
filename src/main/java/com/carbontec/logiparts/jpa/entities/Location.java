@@ -1,12 +1,18 @@
 package com.carbontec.logiparts.jpa.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
 @Data
 @Entity
+@ToString
 public class Location {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -18,9 +24,11 @@ public class Location {
 
     private String name;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "location")
     private Collection<Department> departments;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "location")
     private Collection<Compartment> compartments;
 }

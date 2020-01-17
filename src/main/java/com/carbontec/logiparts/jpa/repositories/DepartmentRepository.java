@@ -5,4 +5,5 @@ import com.carbontec.logiparts.jpa.entities.Location;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DepartmentRepository extends CrudRepository<Department, Integer> {
+    Iterable<Department> findDepartmentByLocation(Location location);
 }

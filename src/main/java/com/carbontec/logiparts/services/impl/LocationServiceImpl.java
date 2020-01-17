@@ -3,8 +3,10 @@ package com.carbontec.logiparts.services.impl;
 import com.carbontec.logiparts.dto.LocationDto;
 import com.carbontec.logiparts.jpa.entities.Location;
 import com.carbontec.logiparts.jpa.repositories.LocationRepository;
+import com.carbontec.logiparts.services.CompartmentService;
+import com.carbontec.logiparts.services.DepartmentService;
 import com.carbontec.logiparts.services.LocationService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -14,10 +16,13 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 @Service
+@RequiredArgsConstructor
 public class LocationServiceImpl implements LocationService {
     private static final String SEPARATOR = " ";
-    @Autowired
-    private LocationRepository locationRepository;
+
+    private final LocationRepository locationRepository;
+    private final DepartmentService departmentService;
+    private final CompartmentService compartmentService;
 
     @Override
     public Collection<LocationDto> getAllLocations() {
@@ -28,6 +33,8 @@ public class LocationServiceImpl implements LocationService {
             LocationDto locationDto = new LocationDto();
             locationDto.setName(l.getName());
             locationDto.setFormattedAddress(getFormattedAdress(l.getPostalCode(), l.getAddress()));
+            locationDto.setDepartments(departmentService.getDepartmentsForLocation(l));
+            locationDto.setCompartments(compartmentService.getCompartmentsByLocation(l));
             return locationDto;
         }).collect(Collectors.toList());
 

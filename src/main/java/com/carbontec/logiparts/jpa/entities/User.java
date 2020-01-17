@@ -1,12 +1,14 @@
 package com.carbontec.logiparts.jpa.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 @Data
 @Entity
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -28,6 +30,7 @@ public class User {
 
     private boolean tokenExpired;
 
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(
             name = "users_roles",
@@ -39,9 +42,4 @@ public class User {
 
     @ManyToOne
     private Department department;
-
-    public Integer getId() {
-        return id;
-    }
-
 }

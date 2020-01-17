@@ -1,6 +1,7 @@
 package com.carbontec.logiparts.jpa.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -16,5 +17,6 @@ public class Privilege {
     private String name;
 
     @ManyToMany(mappedBy = "privileges")
+    @ToString.Exclude
     private Collection<Role> roles;
 }

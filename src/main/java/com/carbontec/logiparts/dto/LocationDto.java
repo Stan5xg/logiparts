@@ -1,12 +1,14 @@
 package com.carbontec.logiparts.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Data
+@ToString
 public class LocationDto {
 
     private String name;
@@ -17,7 +19,9 @@ public class LocationDto {
 
     private String formattedAddress;
 
+    @ToString.Exclude
     private Collection<DepartmentDto> departments;
 
-    private Collection<CompartmentDto> compartment;
+    @ToString.Exclude
+    private Collection<CompartmentDto> compartments;
 }

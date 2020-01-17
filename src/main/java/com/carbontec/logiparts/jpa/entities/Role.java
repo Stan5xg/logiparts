@@ -1,6 +1,7 @@
 package com.carbontec.logiparts.jpa.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -16,6 +17,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @ToString.Exclude
     private Collection<User> users;
 
     @ManyToMany
