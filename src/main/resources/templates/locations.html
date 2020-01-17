@@ -74,36 +74,47 @@
 
 
 
-            <!-- Collapsable Card Example -->
-            <div class="card shadow mb-4">
-              <!-- Card Header - Accordion -->
-              <div class="d-block card-header py-3"  th:each="location: ${locations}" >
-                <form class="location">
-                  <div class="form-group row">
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" id="name" th:text="${location.name}">
-                    </div>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" id="postalCode" th:text="${location.postalCode}">
-                    </div>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" id="address" th:text="${location.address}">
-                    </div>
-                  </div>
-<!--&lt;!&ndash;                  <a href="login.html" class="btn btn-primary btn-user btn-block">&ndash;&gt;-->
-<!--&lt;!&ndash;                    Register Account&ndash;&gt;-->
-<!--&lt;!&ndash;                  </a>&ndash;&gt;-->
+<!--            &lt;!&ndash; Collapsable Card Example &ndash;&gt;-->
+<!--            <div class="card shadow mb-4">-->
+<!--              &lt;!&ndash; Card Header - Accordion &ndash;&gt;-->
+<!--              <div class="d-block card-header py-3"  th:each="location: ${locations}" >-->
+<!--                <form class="location">-->
+<!--                  <div class="form-group row">-->
+<!--                    <div class="col-sm-4">-->
+<!--                      <input type="text" class="form-control" id="name" th:text="${location.name}">-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-2">-->
+<!--                      <input type="text" class="form-control" id="postalCode" th:text="${location.postalCode}">-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-5">-->
+<!--                      <input type="text" class="form-control" id="address" th:text="${location.address}">-->
+<!--                    </div>-->
+<!--                  </div>-->
 <!--                </form>-->
-                <a href="#collapseCardExample" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  show
-                </a>
-              </div>
-              <!-- Card Content - Collapse -->
-              <div class="collapse" id="collapseCardExample">
-                <div class="card-body">
-                  This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+<!--              </div>-->
+<!--              &lt;!&ndash; Card Content - Collapse &ndash;&gt;-->
+<!--              <div class="collapse" id="collapseCardExample">-->
+<!--                <div class="card-body">-->
+<!--                  This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <!-- Collapsable Card Example -->
+            <div  th:each="location, iterStat : ${locations}">
+                <div class="card shadow mb-3">
+                    <!-- Card Header - Accordion -->
+                    <a th:href="'#card'+${iterStat.count}" class="d-block card-header py-6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary" th:text="${location.name}"/>
+                        <p7 class="m-0 text-body" th:text="${location.formattedAddress}"/>
+                    </a>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse" th:id="'card'+${iterStat.count}">
+                        <div class="card-body">
+                            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
 
 

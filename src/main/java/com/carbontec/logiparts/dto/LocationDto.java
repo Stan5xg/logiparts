@@ -8,17 +8,14 @@ import java.util.Collection;
 
 @Data
 public class LocationDto {
-    @NotNull
-    @NotEmpty
-    private String address;
 
-    @NotNull
-    @NotEmpty
     private String name;
 
-    @NotNull
-    @NotEmpty
     private String postalCode;
+
+    private String address;
+
+    private String formattedAddress;
 
     private Collection<DepartmentDto> departments;
 

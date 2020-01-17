@@ -15,6 +15,7 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class LocationServiceImpl implements LocationService {
+    private static final String SEPARATOR = " ";
     @Autowired
     private LocationRepository locationRepository;
 
@@ -25,12 +26,20 @@ public class LocationServiceImpl implements LocationService {
         Stream<Location> locationsStream = StreamSupport.stream(locations.spliterator(), false);
         List<LocationDto> locationDtos = locationsStream.map(l -> {
             LocationDto locationDto = new LocationDto();
-            locationDto.setAddress(l.getAddress());
             locationDto.setName(l.getName());
-            locationDto.setPostalCode(l.getPostalCode());
+            locationDto.setFormattedAddress(getFormattedAdress(l.getPostalCode(), l.getAddress()));
             return locationDto;
         }).collect(Collectors.toList());
 
         return locationDtos;
+    }
+
+    private String getFormattedAdress(String postalCode, String address) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(postalCode);
+        stringBuffer.append(SEPARATOR);
+        stringBuffer.append(address);
+
+        return stringBuffer.toString();
     }
 }
