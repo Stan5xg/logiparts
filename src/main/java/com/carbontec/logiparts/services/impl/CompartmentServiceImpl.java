@@ -18,7 +18,7 @@ import java.util.stream.StreamSupport;
 public class CompartmentServiceImpl implements CompartmentService {
     private final CompartmentRepository compartmentRepository;
 
-    @Override
+    @Override //TODO remove - replaced with a mapper
     public Collection<CompartmentDto> getCompartmentsByLocation(Location location) {
         Iterable<Compartment> compartments = compartmentRepository.findCompartmentByLocation(location);
         Stream<Compartment> compartmentStream = StreamSupport.stream(compartments.spliterator(), false);

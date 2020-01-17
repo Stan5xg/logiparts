@@ -106,7 +106,7 @@
                     <!-- Card Header - Accordion -->
                     <a th:href="'#card'+${iterStat.count}" class="d-block card-header py-6" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary" th:text="${location.name}"/>
-                        <p7 class="m-0 text-body" th:text="${location.formattedAddress}"/>
+                        <p7 class="m-0 text-body" th:text="${location.postalCode} + ' ' + ${location.address}"/>
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse" th:id="'card'+${iterStat.count}">

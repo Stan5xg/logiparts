@@ -42,7 +42,7 @@ public class RegistationController {
         try {
             registered = userService.registerNewUserAccount(accountDto);
         } catch (Exception e) {
-            return null;
+            throw new RuntimeException(e);
         }
         return registered;
     }

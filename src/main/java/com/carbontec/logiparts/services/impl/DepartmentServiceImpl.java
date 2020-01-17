@@ -18,7 +18,7 @@ import java.util.stream.StreamSupport;
 public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentRepository departmentRepository;
 
-    @Override
+    @Override //TODO remove - replaced with a mapper
     public Collection<DepartmentDto> getDepartmentsForLocation(Location location) {
         Iterable<Department> departments = departmentRepository.findDepartmentByLocation(location);
         Stream<Department> departmentsStream = StreamSupport.stream(departments.spliterator(), false);
