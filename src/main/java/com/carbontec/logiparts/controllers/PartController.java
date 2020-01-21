@@ -1,5 +1,6 @@
 package com.carbontec.logiparts.controllers;
 
+import com.carbontec.logiparts.dto.PartDto;
 import com.carbontec.logiparts.dto.PartTypeDto;
 import com.carbontec.logiparts.dto.UserRegistrationDto;
 import com.carbontec.logiparts.services.PartService;
@@ -58,12 +59,18 @@ public class PartController {
     @GetMapping("/parts")
     public String showAllParts(WebRequest request, Model model) {
 
-        List<PartTypeDto> allParts = partTypeService.findAll();
+        List<PartDto> allParts = partService.findAll();
 
-        model.addAttribute("parts", partTypeService.findAll());
-//        model.addAttribute("newPartType", new PartTypeDto());
+        model.addAttribute("parts", allParts);
+        model.addAttribute("newPart", new PartDto());
 
-        return "part-types";
+        return "parts";
+    }
+
+    @RequestMapping(value = "/parts", method = RequestMethod.POST)
+    public RedirectView addPartType(@ModelAttribute("newPart") PartDto partDto, WebRequest request) {
+        partService.save(partDto);
+        return  new RedirectView("/parts");
     }
 
 

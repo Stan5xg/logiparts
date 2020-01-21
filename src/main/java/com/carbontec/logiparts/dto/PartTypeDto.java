@@ -8,7 +8,6 @@ import java.util.List;
 public class PartTypeDto {
     private Integer id;
     private List<PartTypeDto> partTypes;
-    private List<PartDto> parts;
     private String name;
     private String partNum;
     private Integer parentId;

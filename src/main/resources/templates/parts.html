@@ -42,22 +42,21 @@
             <ul>
               <li th:each="part : ${parts}" >
                 <div>
-                <span th:text="${partType.name}"/>
-                <span th:text="${partType.partNum}"/>
-                <span th:text="${partType.id}"/>
+                <span th:text="${part.partType.name}"/>
+                <span th:text="${part.partType.partNum}"/>
+                <span th:text="${part.id}"/>
                 <div>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPartTypeModal" th:attr="data-part-id=${partType.getId()}">Add</button>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartTypeModal" th:attr="data-part-id=${partType.getId()}">Delete</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPartModal">Add</button>
+<!--                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartModal" th:attr="data-part-id=${part.getId()}">Delete</button>-->
                 </div>
-                <div th:with="partTypes = ${partType.getPartTypes()}"
-                     th:include=" :: submenu" th:remove="tag" />
+                  <div th:insert="/fragments/modal/add_part_modal :: copy"></div>
+<!--                  <div th:insert="/fragments/modal/remove_part_modal :: copy"></div>-->
+                  <div th:with="parts = ${part.getParts()}" th:include=" :: submenu" th:remove="tag" />
                 </div>
               </li>
             </ul>
           </div>
 
-          <div th:insert="/fragments/modal/add_part_type_modal :: copy"></div>
-          <div th:insert="/fragments/modal/remove_part_type_modal :: copy"></div>
 
 
         </div>

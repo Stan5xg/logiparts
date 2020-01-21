@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PartService {
     List<PartDto> findAll();
+    void save(PartDto partDto);
 }

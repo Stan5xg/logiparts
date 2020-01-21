@@ -54,7 +54,9 @@ public class PartTypeServiceImpl implements PartTypeService {
         partTypeRepository.delete(partType);
     }
 
-    private PartType getPartType(Integer id) {
+
+    @Override
+    public PartType getPartType(Integer id) {
         Optional<PartType> partTypeOptional = partTypeRepository.findById(id);
         if (!partTypeOptional.isPresent()) {
             throw  new RuntimeException(MESSAGE_NOT_FOUTD);
