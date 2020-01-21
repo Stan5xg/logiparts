@@ -18,7 +18,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="part-type-form" action="/parts" th:object="${newPartType}" method="POST" enctype="utf8">
+                    <form id="part-type-form" action="/part-types" th:object="${newPartType}" method="POST" enctype="utf8">
                         <div class="form-group">
                             <label for="part-type-name" class="col-form-label" th:text="#{label.part.type-name}"/>
                             <input type="text" class="form-control" id="part-type-name" th:field="*{name}"/>

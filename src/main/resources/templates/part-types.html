@@ -40,7 +40,7 @@
 
           <div th:fragment="submenu" th:remove="tag">
             <ul>
-              <li th:each="part : ${parts}" >
+              <li th:each="partType : ${partTypes}" >
                 <div>
                 <span th:text="${partType.name}"/>
                 <span th:text="${partType.partNum}"/>

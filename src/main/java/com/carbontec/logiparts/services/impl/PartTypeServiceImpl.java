@@ -51,17 +51,7 @@ public class PartTypeServiceImpl implements PartTypeService {
         }
 
         PartType partType = getPartType(id);
-
-        removeRecursively(partType);
-    }
-
-    private void removeRecursively(PartType partType) {
-        List<PartType> partTypes = partType.getPartTypes();
-        if (ListUtils.isEmpty(partTypes)) {
-            partTypeRepository.delete(partType);
-        } else {
-            removeRecursively(partTypes.get(0));
-        }
+        partTypeRepository.delete(partType);
     }
 
     private PartType getPartType(Integer id) {

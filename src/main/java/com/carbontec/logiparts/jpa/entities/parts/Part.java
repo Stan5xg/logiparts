@@ -2,11 +2,15 @@ package com.carbontec.logiparts.jpa.entities.parts;
 
 import com.carbontec.logiparts.jpa.entities.Location;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.LinkedList;
@@ -23,13 +27,20 @@ public class Part {
     private PartType partType;
 
     @OneToMany
+    @JoinColumn
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<ParameterValue> parameterValues;
 
     @OneToMany
+    @JoinColumn
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Part> parts = new LinkedList<>();
 
     @ManyToOne
     private Location location;
 
     private String serialNum;
+
+    @Column(nullable = false)
+    private Boolean isRoot = false;
 }

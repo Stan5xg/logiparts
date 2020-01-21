@@ -61,7 +61,6 @@
       // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
       var modal = $(this)
       modal.find('#current_id').val(parent_id)
-      alert(parent_id);
     })
 
 })(jQuery); // End of use strict

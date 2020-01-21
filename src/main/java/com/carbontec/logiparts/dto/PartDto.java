@@ -12,4 +12,5 @@ public class PartDto {
     private List<ParameterValueDto> parameterValues;
     private String serialNum;
     private LocationDto location;
+    private Boolean isRoot;
 }
