@@ -10,6 +10,7 @@ import java.util.Collection;
 @Data
 @ToString
 public class LocationDto {
+    private Integer id;
 
     private String name;
 

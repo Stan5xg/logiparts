@@ -49,7 +49,7 @@
               <h6 class="m-0 font-weight-bold text-primary" th:text="#{registration.card.header}"/>
             </div>
             <div class="card-body">
-              <form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
+              <form action="@/user/registration" th:object="${user}" method="POST" enctype="utf8">
                 <div>
                   <label th:text="#{label.user.firstName}">first</label>
                   <input th:field="*{firstName}"/>

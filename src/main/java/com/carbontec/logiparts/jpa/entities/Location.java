@@ -1,5 +1,6 @@
 package com.carbontec.logiparts.jpa.entities;
 
+import com.carbontec.logiparts.jpa.entities.parts.Part;
 import lombok.Data;
 import lombok.ToString;
 
@@ -31,4 +32,8 @@ public class Location {
     @ToString.Exclude
     @OneToMany(mappedBy = "location")
     private Collection<Compartment> compartments;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "location")
+    private Collection<Part> part;
 }

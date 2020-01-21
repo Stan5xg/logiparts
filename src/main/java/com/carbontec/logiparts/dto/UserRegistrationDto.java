@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class UserRegistrationDto {
+    Integer id;
+
     @NotNull
     @NotEmpty
     private String firstName;

@@ -29,8 +29,8 @@ public class GeneralConfiguration {
                 .setMatchingStrategy(MatchingStrategies.STRICT)
                 .setFieldMatchingEnabled(true)
                 .setSkipNullEnabled(true)
-                .setFieldAccessLevel(PRIVATE)
-                .setPropertyCondition(skipIds);
+                .setFieldAccessLevel(PRIVATE);
+//                .setPropertyCondition(skipIds);
         return mapper;
     }
 

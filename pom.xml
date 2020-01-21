@@ -12,7 +12,7 @@
 	<artifactId>logiparts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>logiparts</name>
-	<description>Logistical system of  exploitation and repairment of industrial machinery parts</description>
+	<description>Logistical system of  exploitation and repairment of industrial machinery partTypes</description>
 
 	<properties>
 		<java.version>1.8</java.version>
