@@ -47,10 +47,10 @@
                 <span th:text="${part.id}"/>
                 <div>
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPartModal">Add</button>
-<!--                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartModal" th:attr="data-part-id=${part.getId()}">Delete</button>-->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartModal">Delete</button>
                 </div>
                   <div th:insert="/fragments/modal/add_part_modal :: copy"></div>
-<!--                  <div th:insert="/fragments/modal/remove_part_modal :: copy"></div>-->
+                  <div th:insert="/fragments/modal/remove_part_modal :: copy"></div>
                   <div th:with="parts = ${part.getParts()}" th:include=" :: submenu" th:remove="tag" />
                 </div>
               </li>
