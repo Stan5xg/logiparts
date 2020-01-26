@@ -1,8 +1,7 @@
 package com.carbontec.logiparts.services;
 
 import com.carbontec.logiparts.dto.PartTypeDto;
-import com.carbontec.logiparts.jpa.entities.Location;
-import com.carbontec.logiparts.jpa.entities.parts.PartType;
+import com.carbontec.logiparts.jpa.entities.PartType;
 
 import java.util.List;
 

@@ -7,24 +7,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.Collection;
+import javax.persistence.OneToOne;
+import java.util.Date;
 
 @Data
 @Entity
 @ToString
-public class Location {
+public class History {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-    private String address;
+    @OneToOne
+    private Location locationFrom;
 
-    private String postalCode;
+    @OneToOne
+    private Location locationTo;
 
-    private String name;
+    private Date date;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "location")
-    private Collection<Part> part;
+    @OneToOne
+    private User user;
 }

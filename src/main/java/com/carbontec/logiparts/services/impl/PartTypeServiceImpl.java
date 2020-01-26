@@ -1,13 +1,12 @@
 package com.carbontec.logiparts.services.impl;
 
 import com.carbontec.logiparts.dto.PartTypeDto;
-import com.carbontec.logiparts.jpa.entities.parts.PartType;
+import com.carbontec.logiparts.jpa.entities.PartType;
 import com.carbontec.logiparts.jpa.repositories.PartTypeRepository;
 import com.carbontec.logiparts.services.PartTypeService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.ListUtils;
 
 import java.util.List;
 import java.util.Optional;

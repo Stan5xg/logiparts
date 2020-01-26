@@ -1,8 +1,8 @@
 package com.carbontec.logiparts.services.impl;
 
 import com.carbontec.logiparts.dto.PartDto;
-import com.carbontec.logiparts.jpa.entities.parts.Part;
-import com.carbontec.logiparts.jpa.entities.parts.PartType;
+import com.carbontec.logiparts.jpa.entities.Part;
+import com.carbontec.logiparts.jpa.entities.PartType;
 import com.carbontec.logiparts.jpa.repositories.PartRepository;
 import com.carbontec.logiparts.services.PartService;
 import com.carbontec.logiparts.services.PartTypeService;

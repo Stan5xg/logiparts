@@ -1,6 +1,5 @@
-package com.carbontec.logiparts.jpa.entities.parts;
+package com.carbontec.logiparts.jpa.entities;
 
-import com.carbontec.logiparts.jpa.entities.Location;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -25,11 +24,6 @@ public class Part {
 
     @ManyToOne
     private PartType partType;
-
-    @OneToMany
-    @JoinColumn
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<ParameterValue> parameterValues;
 
     @OneToMany
     @JoinColumn

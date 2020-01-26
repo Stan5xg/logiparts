@@ -1,7 +1,5 @@
 package com.carbontec.logiparts.dto;
 
-import com.carbontec.logiparts.jpa.entities.parts.Part;
-import com.carbontec.logiparts.jpa.entities.parts.PartType;
 import lombok.Data;
 
 import java.util.List;
