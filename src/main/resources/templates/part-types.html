@@ -23,6 +23,8 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Begin Page Content -->
+      <div th:insert="/fragments/common/top_panel :: copy"></div>
 
       <!-- Main Content -->
       <div id="content">
@@ -31,12 +33,11 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800" th:text="#{registration.header}"></h1>
+            <h1 class="h3 mb-0 text-gray-800">Иерархия типов</h1>
           </div>
 
 
-          <!-- Begin Page Content -->
-          <div th:insert="/fragments/common/top_panel :: copy"></div>
+
 
           <div th:fragment="submenu" th:remove="tag">
             <ul>
@@ -44,11 +45,8 @@
                 <div>
                 <span th:text="${partType.name}"/>
                 <span th:text="${partType.partNum}"/>
-                <span th:text="${partType.id}"/>
-                <div>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPartTypeModal" th:attr="data-part-id=${partType.getId()}">Add</button>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartTypeModal" th:attr="data-part-id=${partType.getId()}">Delete</button>
-                </div>
+                  <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal" data-target="#createPartTypeModal" title="Добавить подтип" th:attr="data-part-id=${partType.getId()}"></a>
+                  <a href="#" type="button" class="fas fa-fw fa-trash" data-toggle="modal" data-target="#removePartTypeModal" title="Удалить тип" th:attr="data-part-id=${partType.getId()}"></a>
                 <div th:with="partTypes = ${partType.getPartTypes()}"
                      th:include=" :: submenu" th:remove="tag" />
                 </div>
