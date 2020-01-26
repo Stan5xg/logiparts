@@ -19,10 +19,4 @@ public class LocationDto {
     private String address;
 
     private String formattedAddress;
-
-    @ToString.Exclude
-    private Collection<DepartmentDto> departments;
-
-    @ToString.Exclude
-    private Collection<CompartmentDto> compartments;
 }
