@@ -27,13 +27,5 @@ public class Location {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "location")
-    private Collection<Department> departments;
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "location")
-    private Collection<Compartment> compartments;
-
-    @ToString.Exclude
-    @OneToMany(mappedBy = "location")
     private Collection<Part> part;
 }
