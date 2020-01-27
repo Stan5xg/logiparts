@@ -49,6 +49,7 @@
                 <div>
                 <span th:text="${part.partType.name}"/>
                 <span th:text="${part.partType.partNum}"/>
+                <span  class="font-weight-bold" th:text="${part.serialNum}"/>
 
                   <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal"  title="Добавить узел" data-target="#createPartModal"></a>
                   <a href="#" type="button" class="fas fa-fw fa-trash" data-toggle="modal" title="Удалить узел" data-target="#removePartModal"></a>
@@ -56,8 +57,8 @@
 
                   <div th:with="parts = ${part.getParts()}" th:include=" :: submenu" th:remove="tag" />
 
-                  <div th:with="partType = ${part.partType}" th:remove="all"  th:include="/fragments/modal/remove_part_modal :: copy"></div>
-                  <div th:with="partType = ${part.partType}" th:remove="all" th:include="/fragments/modal/add_part_modal :: copy"></div>
+                  <div th:with="partType = ${part.partType}"  th:include="/fragments/modal/remove_part_modal :: copy"></div>
+                  <div th:with="partType = ${part.partType}" th:include="/fragments/modal/add_part_modal :: copy"></div>
                 </div>
               </li>
             </ul>

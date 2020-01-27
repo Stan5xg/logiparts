@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <div th:insert="/fragments/common/title_include :: copy"></div>
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+  <div th:insert="/fragments/common/sidebar :: copy"></div>
+
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <div th:insert="/fragments/common/top_panel :: copy"></div>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Перемещение узла</h1>
+        </div>
+        <br>
+        <h1 class="h5 d-sm-flex  text-gray-600">
+          Нагнетатель 2323.012.286 000712
+        </h1>
+        <br>
+
+        <div class="row">
+          <div class="col-md-5">
+            <div>
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">исходное местоположение</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <h5 class="font-weight-bold">ОТРАДНЕНСКОЕ ЛПУ МГ</h5>
+                <h6 class="font-weight-bold">446301 Самарская область, село Кинель-Черкассы</h6>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div >
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">пункт назначения</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <form th:object="${history}">
+                <select id="part-type-id" th:field="*{locationTo}">
+                  <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.name} + ' ' +  ${l.address}"></option>
+                </select>
+                  <input
+                          type="hidden"
+                          th:name="${_csrf.parameterName}"
+                          th:value="${_csrf.token}" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-3" ></div>
+        <div class="col-md-7">
+                <button class="btn btn-primary btn-user btn-block col-sm-6" type="submit" >Переместить</button>
+        </div>
+      </div>
+
+      </div>
+
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+      <div th:insert="/fragments/common/footer :: copy"></div>
+      <!-- End of Main Content -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <div th:insert="/fragments/common/logout :: copy"></div>
+  <div th:insert="/fragments/common/scripts :: copy"></div>
+</body>
+
+</html>

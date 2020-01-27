@@ -37,69 +37,6 @@
             <h1 class="h3 mb-0 text-gray-800">Местоположения</h1>
           </div>
 
-<!--          &lt;!&ndash; DataTales Example &ndash;&gt;-->
-<!--          <div class="card shadow mb-4">-->
-<!--            <div class="card-header py-3">-->
-<!--              <h6 class="m-0 font-weight-bold text-primary" th:text="#{registration.card.header}"/>-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--&lt;!&ndash;              <form action="/location" th:object="${user}" method="POST" enctype="utf8">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <label th:text="#{location.name}">name</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <input th:field="*{name}"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <p th:each="error: ${#fields.errors('name')}"&ndash;&gt;-->
-<!--&lt;!&ndash;                     th:text="${error}">Validation error</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <label th:text="#{location.address}">address</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <input th:field="*{address}"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <p th:each="error : ${#fields.errors('address')}"&ndash;&gt;-->
-<!--&lt;!&ndash;                     th:text="${error}">Validation error</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <label th:text="#{location.postal_code}">last</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <input th:field="*{postal_code}"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                  <p th:each="error : ${#fields.errors('postal_code')}"&ndash;&gt;-->
-<!--&lt;!&ndash;                     th:text="${error}">Validation error</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                //TODO csrf token field should be added by spring automatically&ndash;&gt;-->
-<!--&lt;!&ndash;                <input&ndash;&gt;-->
-<!--&lt;!&ndash;                        type="hidden"&ndash;&gt;-->
-<!--&lt;!&ndash;                        th:name="${_csrf.parameterName}"&ndash;&gt;-->
-<!--&lt;!&ndash;                        th:value="${_csrf.token}" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <button type="submit" th:text="#{label.form.submit}">submit</button>&ndash;&gt;-->
-<!--&lt;!&ndash;              </form>&ndash;&gt;-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-
-<!--            &lt;!&ndash; Collapsable Card Example &ndash;&gt;-->
-<!--            <div class="card shadow mb-4">-->
-<!--              &lt;!&ndash; Card Header - Accordion &ndash;&gt;-->
-<!--              <div class="d-block card-header py-3"  th:each="location: ${locations}" >-->
-<!--                <form class="location">-->
-<!--                  <div class="form-group row">-->
-<!--                    <div class="col-sm-4">-->
-<!--                      <input type="text" class="form-control" id="name" th:text="${location.name}">-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-2">-->
-<!--                      <input type="text" class="form-control" id="postalCode" th:text="${location.postalCode}">-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-5">-->
-<!--                      <input type="text" class="form-control" id="address" th:text="${location.address}">-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </form>-->
-<!--              </div>-->
-<!--              &lt;!&ndash; Card Content - Collapse &ndash;&gt;-->
-<!--              <div class="collapse" id="collapseCardExample">-->
-<!--                <div class="card-body">-->
-<!--                  This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
             <!-- Collapsable Card Example -->
             <div  th:each="location, iterStat : ${locations}">
                 <div class="card shadow mb-3">
@@ -120,9 +57,9 @@
                                     </thead>
                                 </tr>
                                 <tr th:each="part : ${location.partDtos}" href="/">
-                                    <td><a href="/" th:text="${part.partType.name}"/></td>
-                                    <td><a href="/" th:text="${part.partType.getPartNum()}"/></td>
-                                    <td><a href="/" th:text="${part.serialNum}"/></td>
+                                    <td><a href="/parts" th:text="${part.partType.name}"/></td>
+                                    <td><a href="/parts" th:text="${part.partType.getPartNum()}"/></td>
+                                    <td><a href="/parts" th:text="${part.serialNum}"/></td>
                                 </tr>
                             </table>
                         </div>

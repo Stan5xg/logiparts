@@ -1,8 +1,8 @@
 package com.carbontec.logiparts.controllers;
 
 
+import com.carbontec.logiparts.dto.HistoryDto;
 import com.carbontec.logiparts.dto.LocationDto;
-import com.carbontec.logiparts.jpa.repositories.LocationRepository;
 import com.carbontec.logiparts.services.LocationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,24 +10,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.annotation.Resource;
+import java.util.Collection;
 
 @Controller
-public class LocationController {
+public class MovingAndHistoryController {
     @Resource
     private LocationService locationService;
 
-    @GetMapping("/locations")
+    @GetMapping("/move")
     public String showAllLocations(WebRequest request, Model model) {
+        HistoryDto historyDto = new HistoryDto();
 
-        model.addAttribute("locations", locationService.getAllLocations());
-        return "locations";
+        Collection<LocationDto> allLocations = locationService.getAllLocations();
+        model.addAttribute("locations", allLocations);
+        model.addAttribute("history", historyDto);
+
+        return "move-part";
     }
 
-    @GetMapping("/location/add")
-    public String addLocations(WebRequest request, Model model) {
-        LocationDto locationDto = new LocationDto();
-        model.addAttribute("location", locationDto);
-
-        return "add-location";
-    }
 }
