@@ -15,28 +15,33 @@
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-    <div th:insert="/fragments/common/sidebar :: copy"></div>
-
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800" th:text="#{registration.header}"></h1>
-          </div>
+  <div th:insert="/fragments/common/sidebar :: copy"></div>
 
 
-          <!-- Begin Page Content -->
-          <div th:insert="/fragments/common/top_panel :: copy"></div>
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <div th:insert="/fragments/common/top_panel :: copy"></div>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Узлы</h1>
+        </div>
+        <br>
+        <h1 class="h5 d-sm-flex  text-gray-600">
+          СЫЗРАНСКОЕ ЛПУ МГ 446074 Самарская область, Сызранский район, пос. Варламово
+        </h1>
+        <br>
+
 
           <div th:fragment="submenu" th:remove="tag">
             <ul>
@@ -44,14 +49,15 @@
                 <div>
                 <span th:text="${part.partType.name}"/>
                 <span th:text="${part.partType.partNum}"/>
-                <span th:text="${part.id}"/>
-                <div>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPartModal">Add</button>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removePartModal">Delete</button>
-                </div>
-                  <div th:insert="/fragments/modal/add_part_modal :: copy"></div>
-                  <div th:insert="/fragments/modal/remove_part_modal :: copy"></div>
+
+                  <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal"  title="Добавить узел" data-target="#createPartModal"></a>
+                  <a href="#" type="button" class="fas fa-fw fa-trash" data-toggle="modal" title="Удалить узел" data-target="#removePartModal"></a>
+                  <a href="#" type="button" class="fas fa-fw fa-shipping-fast" data-toggle="modal" title="Переместить узел" data-target="#"></a>
+
                   <div th:with="parts = ${part.getParts()}" th:include=" :: submenu" th:remove="tag" />
+
+                  <div th:with="partType = ${part.partType}" th:remove="all"  th:include="/fragments/modal/remove_part_modal :: copy"></div>
+                  <div th:with="partType = ${part.partType}" th:remove="all" th:include="/fragments/modal/add_part_modal :: copy"></div>
                 </div>
               </li>
             </ul>

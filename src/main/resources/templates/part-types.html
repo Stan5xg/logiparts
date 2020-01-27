@@ -45,7 +45,7 @@
                 <div>
                 <span th:text="${partType.name}"/>
                 <span th:text="${partType.partNum}"/>
-                  <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal" data-target="#createPartTypeModal" title="Добавить подтип" th:attr="data-part-id=${partType.getId()}"></a>
+                  <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal" data-target="#createPartTypeModal"  title="Добавить подтип" th:attr="data-part-id=${partType.getId()}"></a>
                   <a href="#" type="button" class="fas fa-fw fa-trash" data-toggle="modal" data-target="#removePartTypeModal" title="Удалить тип" th:attr="data-part-id=${partType.getId()}"></a>
                 <div th:with="partTypes = ${partType.getPartTypes()}"
                      th:include=" :: submenu" th:remove="tag" />

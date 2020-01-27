@@ -111,7 +111,20 @@
                     <!-- Card Content - Collapse -->
                     <div class="collapse" th:id="'card'+${iterStat.count}">
                         <div class="card-body">
-                          This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" th:if="${!location.partDtos.isEmpty()}">
+                                <tr>
+                                    <thead>
+                                        <th>Узел</th>
+                                        <th>Чертежный номер</th>
+                                        <th>Заводской номер</th>
+                                    </thead>
+                                </tr>
+                                <tr th:each="part : ${location.partDtos}" href="/">
+                                    <td><a href="/" th:text="${part.partType.name}"/></td>
+                                    <td><a href="/" th:text="${part.partType.getPartNum()}"/></td>
+                                    <td><a href="/" th:text="${part.serialNum}"/></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
