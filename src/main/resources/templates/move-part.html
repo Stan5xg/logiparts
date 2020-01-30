@@ -64,9 +64,13 @@
               <!-- Card Body -->
               <div class="card-body">
                 <form th:object="${history}">
+                  <div class="col-md-5">
+                    <input type="checkbox"> Без вложенных узлов</input>
+                  </div>
                 <select id="part-type-id" th:field="*{locationTo}">
                   <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.name} + ' ' +  ${l.address}"></option>
                 </select>
+
                   <input
                           type="hidden"
                           th:name="${_csrf.parameterName}"

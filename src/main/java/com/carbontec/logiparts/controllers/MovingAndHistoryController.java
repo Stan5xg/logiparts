@@ -28,4 +28,10 @@ public class MovingAndHistoryController {
         return "move-part";
     }
 
+    @GetMapping("/history")
+    public String showHistory(WebRequest request, Model model) {
+
+        return "history";
+    }
+
 }

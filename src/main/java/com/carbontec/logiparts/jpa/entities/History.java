@@ -27,5 +27,8 @@ public class History {
     private Date date;
 
     @OneToOne
+    private Part part;
+
+    @OneToOne
     private User user;
 }

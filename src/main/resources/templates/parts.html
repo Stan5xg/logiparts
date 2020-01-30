@@ -42,8 +42,9 @@
         </h1>
         <br>
 
-
           <div th:fragment="submenu" th:remove="tag">
+            <hr class="divider"/>
+
             <ul>
               <li th:each="part : ${parts}" >
                 <div>
@@ -53,12 +54,14 @@
 
                   <a href="#" type="button" class="fas fa-fw fa-plus" data-toggle="modal"  title="Добавить узел" data-target="#createPartModal"></a>
                   <a href="#" type="button" class="fas fa-fw fa-trash" data-toggle="modal" title="Удалить узел" data-target="#removePartModal"></a>
-                  <a href="#" type="button" class="fas fa-fw fa-shipping-fast" data-toggle="modal" title="Переместить узел" data-target="#"></a>
+                  <a href="/move" type="button" class="fas fa-fw fa-shipping-fast" title="Переместить узел"></a>
+                  <a href="#" type="button" class="fas fa-fw fa-arrow-alt-circle-up" data-toggle="modal" title="Добавить в иерархию" data-target="#addToHierarchyModal"></a>
 
                   <div th:with="parts = ${part.getParts()}" th:include=" :: submenu" th:remove="tag" />
 
                   <div th:with="partType = ${part.partType}"  th:include="/fragments/modal/remove_part_modal :: copy"></div>
                   <div th:with="partType = ${part.partType}" th:include="/fragments/modal/add_part_modal :: copy"></div>
+                  <div th:with="partType = ${part.partType}" th:include="/fragments/modal/to_hierarchy :: copy"></div>
                 </div>
               </li>
             </ul>
